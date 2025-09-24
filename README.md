@@ -26,8 +26,6 @@ This repository's content is primarily driven by two excellent resources:
 
 1.  **[Go By Example](https://gobyexample.com/)** <br>
     An invaluable, hands-on introduction to Go using annotated example programs. This resource guides the repository's file structure, with each topic often getting its own example file (e.g., `variables.go`, `functions.go`).
-    
-    <br>
 
 2.  **Go in Action (by William Kennedy, Brian Ketelsen, and Erik St. Martin)** <br>
     This book provides a deep dive into the language's core features, focusing on **idiomatic Go** and best practices. Code from this book is used to **supplement** the basic examples, often found in separate, more complex projects or files.
