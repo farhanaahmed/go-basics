@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"maps"
 	"slices"
 )
 
@@ -10,6 +11,7 @@ func main() {
 	//testForLoop()
 	//arrays()
 	//slicesExample()
+	mapsExample()
 }
 
 func helloWorld() {
@@ -127,4 +129,57 @@ func slicesExample() {
 		}
 	}
 	fmt.Println("2d: ", twoD)
+}
+func mapsExample() {
+	// Maps are Go’s built-in associative data type
+	// Sometimes called hashes or dicts in other languages
+	// declare and initialize a new map in the same line with this syntax
+	n := map[string]int{"foo": 1, "bar": 2}
+	fmt.Println("map:", n)
+	// To create an empty map, use the builtin make: make(map[key-type]val-type)
+	m := make(map[string]int)
+	fmt.Println("empty:", m)
+	// Set key/value pairs using typical name[key] = val syntax
+	m["key1"] = 7
+	m["key2"] = 13
+	// Printing a map with will show all of its key/value pairs
+	fmt.Println("map:", m)
+	// Get a value for a key with name[key]
+	value1 := m["key1"]
+	fmt.Println("value1:", value1)
+	// If the key doesn’t exist, the zero value of the value type is returned
+	value3 := m["key3"]
+	fmt.Println("value3:", value3)
+	// len returns the number of key/value pairs when called on a map
+	fmt.Println("len:", len(m))
+	// Delete a key/value pair with delete
+	delete(m, "key2")
+	fmt.Println("map:", m)
+	// remove all key/value pairs from a map
+	clear(m)
+	fmt.Println("map:", m)
+	// check if a key exists in a map
+	// if key exists, prs will be true, otherwise false
+	// Here we didn’t need the value itself, so we ignored it with the blank identifier _
+	_, prs := m["k2"]
+	fmt.Println("prs:", prs)
+	// without the blank identifier, we will get the value of the key
+	prs2 := m["k1"]
+	fmt.Println("prs2:", prs2)
+
+	// check if a key exists in a map
+	// val, exists are only available inside the if statement
+	if val, exists := m["a2"]; exists {
+		fmt.Printf("Key 'a2' exists with value: %d\n", val)
+	} else {
+		fmt.Println("Key 'a2' does not exist in the map")
+	}
+
+	// check if two maps are equal
+	a := map[string]int{"one": 1, "two": 2}
+	b := map[string]int{"one": 1, "two": 2}
+	if maps.Equal(a, b) {
+		fmt.Println("a == b")
+	}
+
 }
