@@ -24,10 +24,15 @@ func main() {
 	//fmt.Println(a)
 	//fmt.Println(b)
 	//If you only want a subset of the returned values, use the blank identifier _
-	_, b := multipleReturn()
-	fmt.Println(b)
-	a, _ := multipleReturn()
-	fmt.Println(a)
+	//_, b := multipleReturn()
+	//fmt.Println(b)
+	//a, _ := multipleReturn()
+	//fmt.Println(a)
+	// Variadic Functions
+	sum(1, 2, 3)
+	sum(1, 2, 3, 4)
+	num := []int{1, 2, 3, 4, 5}
+	sum(num...)
 }
 
 func helloWorld() {
@@ -212,7 +217,23 @@ func plusPlus(a, b, c int) int {
 }
 
 // multiple return values
+// Go has built-in support for multiple return values
+// The return statement can return multiple values
+// For example, to return both result and error values from a function.
 
 func multipleReturn() (int, int) {
 	return 1, 2
+}
+
+// Variadic Functions
+// They can be called with any number of trailing arguments
+// A function that will take an arbitrary number of ints as arguments.
+
+func sum(nums ...int) {
+	fmt.Print(nums, " ")
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	fmt.Println(total)
 }
